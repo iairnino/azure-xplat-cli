@@ -732,6 +732,14 @@
                   "bool": true,
                   "long": "--active-directory-graph-api-version",
                   "description": "the Active Directory api version"
+                },
+                {
+                  "flags": "--key-vault-dns-suffix <keyVaultDnsSuffix>",
+                  "required": -24,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--key-vault-dns-suffix",
+                  "description": "the keyvault service dns suffix"
                 }
               ]
             },
@@ -784,12 +792,12 @@
                   "description": "the management portal URL"
                 },
                 {
-                  "flags": "--active-directory-graph-api-version <activeDirectoryGraphApiVersion>",
-                  "required": -38,
+                  "flags": "--key-vault-dns-suffix <keyVaultDnsSuffix>",
+                  "required": -24,
                   "optional": 0,
                   "bool": true,
-                  "long": "--active-directory-graph-api-version",
-                  "description": "the Active Directory api version"
+                  "long": "--key-vault-dns-suffix",
+                  "description": "the keyvault service dns suffix"
                 },
                 {
                   "flags": "--management-endpoint-url <managementEndpointUrl>",
@@ -862,6 +870,14 @@
                   "bool": true,
                   "long": "--active-directory-graph-resource-id",
                   "description": "the Active Directory resource ID"
+                },
+                {
+                  "flags": "--active-directory-graph-api-version <activeDirectoryGraphApiVersion>",
+                  "required": -38,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--active-directory-graph-api-version",
+                  "description": "the Active Directory api version"
                 },
                 {
                   "flags": "--active-directory-endpoint-url <activeDirectoryEndpointUrl>",

@@ -552,12 +552,12 @@
                   "description": "the management portal URL"
                 },
                 {
-                  "flags": "--active-directory-graph-api-version <activeDirectoryGraphApiVersion>",
-                  "required": -38,
+                  "flags": "--key-vault-dns-suffix <keyVaultDnsSuffix>",
+                  "required": -24,
                   "optional": 0,
                   "bool": true,
-                  "long": "--active-directory-graph-api-version",
-                  "description": "the Active Directory api version"
+                  "long": "--key-vault-dns-suffix",
+                  "description": "the keyvault service dns suffix"
                 },
                 {
                   "flags": "--management-endpoint-url <managementEndpointUrl>",
@@ -630,6 +630,14 @@
                   "bool": true,
                   "long": "--active-directory-graph-resource-id",
                   "description": "the Active Directory resource ID"
+                },
+                {
+                  "flags": "--active-directory-graph-api-version <activeDirectoryGraphApiVersion>",
+                  "required": -38,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--active-directory-graph-api-version",
+                  "description": "the Active Directory api version"
                 },
                 {
                   "flags": "--active-directory-endpoint-url <activeDirectoryEndpointUrl>",
@@ -730,12 +738,12 @@
                   "description": "the dns suffix for sql servers"
                 },
                 {
-                  "flags": "--active-directory-graph-api-version <activeDirectoryGraphApiVersion>",
-                  "required": -38,
+                  "flags": "--key-vault-dns-suffix <keyVaultDnsSuffix>",
+                  "required": -24,
                   "optional": 0,
                   "bool": true,
-                  "long": "--active-directory-graph-api-version",
-                  "description": "the Active Directory api version"
+                  "long": "--key-vault-dns-suffix",
+                  "description": "the keyvault service dns suffix"
                 },
                 {
                   "flags": "--active-directory-resource-id <activeDirectoryResourceId>",
@@ -768,6 +776,14 @@
                   "bool": true,
                   "long": "--active-directory-graph-resource-id",
                   "description": "the Active Directory resource ID"
+                },
+                {
+                  "flags": "--active-directory-graph-api-version <activeDirectoryGraphApiVersion>",
+                  "required": -38,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--active-directory-graph-api-version",
+                  "description": "the Active Directory api version"
                 },
                 {
                   "flags": "--publishing-profile-url <publishingProfileUrl>",
@@ -21821,6 +21837,1319 @@
                       "short": "-s",
                       "long": "--subscription",
                       "description": "the subscription identifier"
+                    }
+                  ]
+                }
+              ],
+              "categories": {}
+            }
+          }
+        },
+        "gateway": {
+          "name": "gateway",
+          "description": "Commands to manage Gateways",
+          "fullName": "network gateway",
+          "usage": "[options]",
+          "options": [],
+          "commands": [],
+          "categories": {
+            "vnet": {
+              "name": "vnet",
+              "description": "Commands to manage Virtual Network Gateways",
+              "fullName": "network gateway vnet",
+              "usage": "[options] [command]",
+              "options": [],
+              "commands": [
+                {
+                  "name": "create",
+                  "description": "Create a virtual network gateway",
+                  "fullName": "network gateway vnet create",
+                  "usage": "[options] <resource-group> <name> <location>",
+                  "filePath": "commands/arm/network/network._js",
+                  "options": [
+                    {
+                      "flags": "-v, --verbose",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-v",
+                      "long": "--verbose",
+                      "description": "use verbose output"
+                    },
+                    {
+                      "flags": "-vv",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "-vv",
+                      "description": "more verbose with debug output"
+                    },
+                    {
+                      "flags": "--json",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--json",
+                      "description": "use json output"
+                    },
+                    {
+                      "flags": "-g, --resource-group <resource-group>",
+                      "required": -22,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-g",
+                      "long": "--resource-group",
+                      "description": "the name of the resource group"
+                    },
+                    {
+                      "flags": "-n, --name <name>",
+                      "required": -12,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-n",
+                      "long": "--name",
+                      "description": "the name of the virtual network gateway"
+                    },
+                    {
+                      "flags": "-l, --location <location>",
+                      "required": -16,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-l",
+                      "long": "--location",
+                      "description": "the location"
+                    },
+                    {
+                      "flags": "-y, --type <type>",
+                      "required": -12,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-y",
+                      "long": "--type",
+                      "description": "the gateway type\n   Valid values are [RouteBased,PolicyBased,Dedicated]\n   Default is RouteBased"
+                    },
+                    {
+                      "flags": "-u, --public-ip-id <public-ip-id>",
+                      "required": -20,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-u",
+                      "long": "--public-ip-id",
+                      "description": "the public ip identifier.\n     e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/publicIPAddresses/<public-ip-name>"
+                    },
+                    {
+                      "flags": "-p, --public-ip-name <public-ip-name>",
+                      "required": -22,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-p",
+                      "long": "--public-ip-name",
+                      "description": "the public ip name. This public ip must exists in the same resource group as the vnet gateway. Please use public-ip-id if that is not the case."
+                    },
+                    {
+                      "flags": "-f, --subnet-id <subnet-id>",
+                      "required": -17,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-f",
+                      "long": "--subnet-id",
+                      "description": "the subnet identifier.\n     e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/MyTestNetwork/subnets/<subnet-name>"
+                    },
+                    {
+                      "flags": "-m, --vnet-name <vnet-name>",
+                      "required": -17,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-m",
+                      "long": "--vnet-name",
+                      "description": "the virtual network name. This virtual network must exists in the same resource group as the vnet gateway. Please use sunet-id if that is not the case."
+                    },
+                    {
+                      "flags": "-e, --subnet-name <subnet-name>",
+                      "required": -19,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-e",
+                      "long": "--subnet-name",
+                      "description": "the subnet name"
+                    },
+                    {
+                      "flags": "-a, --private-ip-address <private-ip-address>",
+                      "required": -26,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-a",
+                      "long": "--private-ip-address",
+                      "description": "the private ip address"
+                    },
+                    {
+                      "flags": "-b, --enable-bgp <enable-bgp>",
+                      "required": -18,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-b",
+                      "long": "--enable-bgp",
+                      "description": "enables BGP flag\n   Valid values are [True, False]\n   Default is True"
+                    },
+                    {
+                      "flags": "-t, --tags <tags>",
+                      "required": -12,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-t",
+                      "long": "--tags",
+                      "description": "the tags set on this virtual network gateway.\n   Can be multiple, in the format of \"name=value\".\n   Name is required and value is optional.\n   For example, -t tag1=value1;tag2"
+                    },
+                    {
+                      "flags": "-s, --subscription <subscription>",
+                      "required": -20,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-s",
+                      "long": "--subscription",
+                      "description": "the subscription identifier"
+                    }
+                  ]
+                },
+                {
+                  "name": "set",
+                  "description": "Set a virtual network gateway",
+                  "fullName": "network gateway vnet set",
+                  "usage": "[options] <resource-group> <name>",
+                  "filePath": "commands/arm/network/network._js",
+                  "options": [
+                    {
+                      "flags": "-v, --verbose",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-v",
+                      "long": "--verbose",
+                      "description": "use verbose output"
+                    },
+                    {
+                      "flags": "-vv",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "-vv",
+                      "description": "more verbose with debug output"
+                    },
+                    {
+                      "flags": "--json",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--json",
+                      "description": "use json output"
+                    },
+                    {
+                      "flags": "-g, --resource-group <resource-group>",
+                      "required": -22,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-g",
+                      "long": "--resource-group",
+                      "description": "the name of the resource group"
+                    },
+                    {
+                      "flags": "-n, --name <name>",
+                      "required": -12,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-n",
+                      "long": "--name",
+                      "description": "the name of the virtual network gateway"
+                    },
+                    {
+                      "flags": "-t, --tags <tags>",
+                      "required": -12,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-t",
+                      "long": "--tags",
+                      "description": "the tags set on this virtual network gateway.\n     Can be multiple. In the format of \"name=value\".\n     Name is required and value is optional. For example, -t \"tag1=value1;tag2\".\n     Existing tag values will be replaced by the values specified."
+                    },
+                    {
+                      "flags": "--no-tags",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": false,
+                      "long": "--no-tags",
+                      "description": "remove all existing tags"
+                    },
+                    {
+                      "flags": "-s, --subscription <subscription>",
+                      "required": -20,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-s",
+                      "long": "--subscription",
+                      "description": "the subscription identifier"
+                    }
+                  ]
+                },
+                {
+                  "name": "list",
+                  "description": "List virtual network gateways",
+                  "fullName": "network gateway vnet list",
+                  "usage": "[options] <resource-group>",
+                  "filePath": "commands/arm/network/network._js",
+                  "options": [
+                    {
+                      "flags": "-v, --verbose",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-v",
+                      "long": "--verbose",
+                      "description": "use verbose output"
+                    },
+                    {
+                      "flags": "-vv",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "-vv",
+                      "description": "more verbose with debug output"
+                    },
+                    {
+                      "flags": "--json",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--json",
+                      "description": "use json output"
+                    },
+                    {
+                      "flags": "-g, --resource-group <resource-group>",
+                      "required": -22,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-g",
+                      "long": "--resource-group",
+                      "description": "the name of the resource group"
+                    },
+                    {
+                      "flags": "-s, --subscription <subscription>",
+                      "required": -20,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-s",
+                      "long": "--subscription",
+                      "description": "the subscription identifier"
+                    }
+                  ]
+                },
+                {
+                  "name": "show",
+                  "description": "Get a virtual network gateway",
+                  "fullName": "network gateway vnet show",
+                  "usage": "[options] <resource-group> <name>",
+                  "filePath": "commands/arm/network/network._js",
+                  "options": [
+                    {
+                      "flags": "-v, --verbose",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-v",
+                      "long": "--verbose",
+                      "description": "use verbose output"
+                    },
+                    {
+                      "flags": "-vv",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "-vv",
+                      "description": "more verbose with debug output"
+                    },
+                    {
+                      "flags": "--json",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--json",
+                      "description": "use json output"
+                    },
+                    {
+                      "flags": "-g, --resource-group <resource-group>",
+                      "required": -22,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-g",
+                      "long": "--resource-group",
+                      "description": "the name of the resource group"
+                    },
+                    {
+                      "flags": "-n, --name <name>",
+                      "required": -12,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-n",
+                      "long": "--name",
+                      "description": "the name of the virtual network gateway"
+                    },
+                    {
+                      "flags": "-s, --subscription <subscription>",
+                      "required": -20,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-s",
+                      "long": "--subscription",
+                      "description": "the subscription identifier"
+                    }
+                  ]
+                },
+                {
+                  "name": "delete",
+                  "description": "Delete a virtual network gateway",
+                  "fullName": "network gateway vnet delete",
+                  "usage": "[options] <resource-group> <name>",
+                  "filePath": "commands/arm/network/network._js",
+                  "options": [
+                    {
+                      "flags": "-v, --verbose",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-v",
+                      "long": "--verbose",
+                      "description": "use verbose output"
+                    },
+                    {
+                      "flags": "-vv",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "-vv",
+                      "description": "more verbose with debug output"
+                    },
+                    {
+                      "flags": "--json",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--json",
+                      "description": "use json output"
+                    },
+                    {
+                      "flags": "-g, --resource-group <resource-group>",
+                      "required": -22,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-g",
+                      "long": "--resource-group",
+                      "description": "the name of the resource group"
+                    },
+                    {
+                      "flags": "-n, --name <name>",
+                      "required": -12,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-n",
+                      "long": "--name",
+                      "description": "the name of the virtual network gateway"
+                    },
+                    {
+                      "flags": "-q, --quiet",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-q",
+                      "long": "--quiet",
+                      "description": "quiet mode, do not ask for delete confirmation"
+                    },
+                    {
+                      "flags": "-s, --subscription <subscription>",
+                      "required": -20,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-s",
+                      "long": "--subscription",
+                      "description": "the subscription identifier"
+                    }
+                  ]
+                }
+              ],
+              "categories": {
+                "ip-config": {
+                  "name": "ip-config",
+                  "description": "Commands to manage Virtual Network Gateway VIP configuration",
+                  "fullName": "network gateway vnet ip-config",
+                  "usage": "[options] [command]",
+                  "options": [],
+                  "commands": [
+                    {
+                      "name": "add",
+                      "description": "Add an IP configuration to Virtual Network Gateway",
+                      "fullName": "network gateway vnet ip-config add",
+                      "usage": "[options] <resource-group> <vnet-gateway-name> [name]",
+                      "filePath": "commands/arm/network/network._js",
+                      "options": [
+                        {
+                          "flags": "-v, --verbose",
+                          "required": 0,
+                          "optional": 0,
+                          "bool": true,
+                          "short": "-v",
+                          "long": "--verbose",
+                          "description": "use verbose output"
+                        },
+                        {
+                          "flags": "-vv",
+                          "required": 0,
+                          "optional": 0,
+                          "bool": true,
+                          "long": "-vv",
+                          "description": "more verbose with debug output"
+                        },
+                        {
+                          "flags": "--json",
+                          "required": 0,
+                          "optional": 0,
+                          "bool": true,
+                          "long": "--json",
+                          "description": "use json output"
+                        },
+                        {
+                          "flags": "-g, --resource-group <resource-group>",
+                          "required": -22,
+                          "optional": 0,
+                          "bool": true,
+                          "short": "-g",
+                          "long": "--resource-group",
+                          "description": "the name of the resource group"
+                        },
+                        {
+                          "flags": "-w, --vnet-gateway-name <vnet-gateway-name>",
+                          "required": -25,
+                          "optional": 0,
+                          "bool": true,
+                          "short": "-w",
+                          "long": "--vnet-gateway-name",
+                          "description": "the name of the virtual network gateway"
+                        },
+                        {
+                          "flags": "-n, --name <name>",
+                          "required": -12,
+                          "optional": 0,
+                          "bool": true,
+                          "short": "-n",
+                          "long": "--name",
+                          "description": "the name of the ip configuration"
+                        },
+                        {
+                          "flags": "-a, --private-ip-address <private-ip-address>",
+                          "required": -26,
+                          "optional": 0,
+                          "bool": true,
+                          "short": "-a",
+                          "long": "--private-ip-address",
+                          "description": "the private ip address"
+                        },
+                        {
+                          "flags": "-u, --public-ip-id <public-ip-id>",
+                          "required": -20,
+                          "optional": 0,
+                          "bool": true,
+                          "short": "-u",
+                          "long": "--public-ip-id",
+                          "description": "the public ip identifier.\n     e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/publicIPAddresses/<public-ip-name>"
+                        },
+                        {
+                          "flags": "-p, --public-ip-name <public-ip-name>",
+                          "required": -22,
+                          "optional": 0,
+                          "bool": true,
+                          "short": "-p",
+                          "long": "--public-ip-name",
+                          "description": "the public ip name. This public ip must exists in the same resource group as the vnet gateway. Please use public-ip-id if that is not the case."
+                        },
+                        {
+                          "flags": "-f, --subnet-id <subnet-id>",
+                          "required": -17,
+                          "optional": 0,
+                          "bool": true,
+                          "short": "-f",
+                          "long": "--subnet-id",
+                          "description": "the subnet identifier.\n     e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/MyTestNetwork/subnets/<subnet-name>"
+                        },
+                        {
+                          "flags": "-m, --vnet-name <vnet-name>",
+                          "required": -17,
+                          "optional": 0,
+                          "bool": true,
+                          "short": "-m",
+                          "long": "--vnet-name",
+                          "description": "the virtual network name. This virtual network must exists in the same resource group as the vnet gateway. Please use sunet-id if that is not the case."
+                        },
+                        {
+                          "flags": "-e, --subnet-name <subnet-name>",
+                          "required": -19,
+                          "optional": 0,
+                          "bool": true,
+                          "short": "-e",
+                          "long": "--subnet-name",
+                          "description": "the subnet name"
+                        },
+                        {
+                          "flags": "-s, --subscription <subscription>",
+                          "required": -20,
+                          "optional": 0,
+                          "bool": true,
+                          "short": "-s",
+                          "long": "--subscription",
+                          "description": "the subscription identifier"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "remove",
+                      "description": "Remove an IP configuration to Virtual Network Gateway",
+                      "fullName": "network gateway vnet ip-config remove",
+                      "usage": "[options] <resource-group> <vnet-gateway-name> [name]",
+                      "filePath": "commands/arm/network/network._js",
+                      "options": [
+                        {
+                          "flags": "-v, --verbose",
+                          "required": 0,
+                          "optional": 0,
+                          "bool": true,
+                          "short": "-v",
+                          "long": "--verbose",
+                          "description": "use verbose output"
+                        },
+                        {
+                          "flags": "-vv",
+                          "required": 0,
+                          "optional": 0,
+                          "bool": true,
+                          "long": "-vv",
+                          "description": "more verbose with debug output"
+                        },
+                        {
+                          "flags": "--json",
+                          "required": 0,
+                          "optional": 0,
+                          "bool": true,
+                          "long": "--json",
+                          "description": "use json output"
+                        },
+                        {
+                          "flags": "-g, --resource-group <resource-group>",
+                          "required": -22,
+                          "optional": 0,
+                          "bool": true,
+                          "short": "-g",
+                          "long": "--resource-group",
+                          "description": "the name of the resource group"
+                        },
+                        {
+                          "flags": "-w, --vnet-gateway-name <vnet-gateway-name>",
+                          "required": -25,
+                          "optional": 0,
+                          "bool": true,
+                          "short": "-w",
+                          "long": "--vnet-gateway-name",
+                          "description": "the name of the virtual network gateway"
+                        },
+                        {
+                          "flags": "-n, --name <name>",
+                          "required": -12,
+                          "optional": 0,
+                          "bool": true,
+                          "short": "-n",
+                          "long": "--name",
+                          "description": "the name of the ip configuration"
+                        },
+                        {
+                          "flags": "-s, --subscription <subscription>",
+                          "required": -20,
+                          "optional": 0,
+                          "bool": true,
+                          "short": "-s",
+                          "long": "--subscription",
+                          "description": "the subscription identifier"
+                        }
+                      ]
+                    }
+                  ],
+                  "categories": {}
+                }
+              }
+            },
+            "local-network": {
+              "name": "local-network",
+              "description": "Commands to manage Local Network Gateways",
+              "fullName": "network gateway local-network",
+              "usage": "[options] [command]",
+              "options": [],
+              "commands": [
+                {
+                  "name": "create",
+                  "description": "Create a local network gateway",
+                  "fullName": "network gateway local-network create",
+                  "usage": "[options] <resource-group> <name> <location>",
+                  "filePath": "commands/arm/network/network._js",
+                  "options": [
+                    {
+                      "flags": "-v, --verbose",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-v",
+                      "long": "--verbose",
+                      "description": "use verbose output"
+                    },
+                    {
+                      "flags": "-vv",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "-vv",
+                      "description": "more verbose with debug output"
+                    },
+                    {
+                      "flags": "--json",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--json",
+                      "description": "use json output"
+                    },
+                    {
+                      "flags": "-g, --resource-group <resource-group>",
+                      "required": -22,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-g",
+                      "long": "--resource-group",
+                      "description": "the name of the resource group"
+                    },
+                    {
+                      "flags": "-n, --name <name>",
+                      "required": -12,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-n",
+                      "long": "--name",
+                      "description": "the name of the local network"
+                    },
+                    {
+                      "flags": "-a, --address-space <address-space>",
+                      "required": -21,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-a",
+                      "long": "--address-space",
+                      "description": "the local network site address space"
+                    },
+                    {
+                      "flags": "-i, --ip-address <ip-address>",
+                      "required": -18,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-i",
+                      "long": "--ip-address",
+                      "description": "the IP address of the local network site"
+                    },
+                    {
+                      "flags": "-l, --location <location>",
+                      "required": -16,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-l",
+                      "long": "--location",
+                      "description": "the location"
+                    },
+                    {
+                      "flags": "-s, --subscription <subscription>",
+                      "required": -20,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-s",
+                      "long": "--subscription",
+                      "description": "the subscription identifier"
+                    },
+                    {
+                      "flags": "-t, --tags <tags>",
+                      "required": -12,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-t",
+                      "long": "--tags",
+                      "description": "the tags set on this local network gateway.\n   Can be multiple, in the format of \"name=value\".\n   Name is required and value is optional.\n   For example, -t tag1=value1;tag2"
+                    }
+                  ]
+                },
+                {
+                  "name": "set",
+                  "description": "Set a local network gateway",
+                  "fullName": "network gateway local-network set",
+                  "usage": "[options] <resource-group> <name>",
+                  "filePath": "commands/arm/network/network._js",
+                  "options": [
+                    {
+                      "flags": "-v, --verbose",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-v",
+                      "long": "--verbose",
+                      "description": "use verbose output"
+                    },
+                    {
+                      "flags": "-vv",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "-vv",
+                      "description": "more verbose with debug output"
+                    },
+                    {
+                      "flags": "--json",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--json",
+                      "description": "use json output"
+                    },
+                    {
+                      "flags": "-g, --resource-group <resource-group>",
+                      "required": -22,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-g",
+                      "long": "--resource-group",
+                      "description": "the name of the resource group"
+                    },
+                    {
+                      "flags": "-n, --name <name>",
+                      "required": -12,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-n",
+                      "long": "--name",
+                      "description": "the name of the local network"
+                    },
+                    {
+                      "flags": "-a, --address-space <address-space>",
+                      "required": -21,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-a",
+                      "long": "--address-space",
+                      "description": "the local network site address space"
+                    },
+                    {
+                      "flags": "-t, --tags <tags>",
+                      "required": -12,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-t",
+                      "long": "--tags",
+                      "description": "the tags set on this local network gateway.\n     Can be multiple. In the format of \"name=value\".\n     Name is required and value is optional. For example, -t \"tag1=value1;tag2\".\n     Existing tag values will be replaced by the values specified."
+                    },
+                    {
+                      "flags": "--no-tags",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": false,
+                      "long": "--no-tags",
+                      "description": "remove all existing tags"
+                    },
+                    {
+                      "flags": "-s, --subscription <subscription>",
+                      "required": -20,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-s",
+                      "long": "--subscription",
+                      "description": "the subscription identifier"
+                    }
+                  ]
+                },
+                {
+                  "name": "list",
+                  "description": "Get all local networks gateways",
+                  "fullName": "network gateway local-network list",
+                  "usage": "[options] <resource-group>",
+                  "filePath": "commands/arm/network/network._js",
+                  "options": [
+                    {
+                      "flags": "-v, --verbose",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-v",
+                      "long": "--verbose",
+                      "description": "use verbose output"
+                    },
+                    {
+                      "flags": "-vv",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "-vv",
+                      "description": "more verbose with debug output"
+                    },
+                    {
+                      "flags": "--json",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--json",
+                      "description": "use json output"
+                    },
+                    {
+                      "flags": "-g, --resource-group <resource-group>",
+                      "required": -22,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-g",
+                      "long": "--resource-group",
+                      "description": "the name of the resource group"
+                    },
+                    {
+                      "flags": "-s, --subscription <subscription>",
+                      "required": -20,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-s",
+                      "long": "--subscription",
+                      "description": "the subscription identifier"
+                    }
+                  ]
+                },
+                {
+                  "name": "show",
+                  "description": "Get a local network gateway",
+                  "fullName": "network gateway local-network show",
+                  "usage": "[options] <resource-group> <name>",
+                  "filePath": "commands/arm/network/network._js",
+                  "options": [
+                    {
+                      "flags": "-v, --verbose",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-v",
+                      "long": "--verbose",
+                      "description": "use verbose output"
+                    },
+                    {
+                      "flags": "-vv",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "-vv",
+                      "description": "more verbose with debug output"
+                    },
+                    {
+                      "flags": "--json",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--json",
+                      "description": "use json output"
+                    },
+                    {
+                      "flags": "-g, --resource-group <resource-group>",
+                      "required": -22,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-g",
+                      "long": "--resource-group",
+                      "description": "the name of the resource group"
+                    },
+                    {
+                      "flags": "-n, --name <name>",
+                      "required": -12,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-n",
+                      "long": "--name",
+                      "description": "the name of the local network"
+                    },
+                    {
+                      "flags": "-s, --subscription <id>",
+                      "required": -20,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-s",
+                      "long": "--subscription",
+                      "description": "the subscription id"
+                    }
+                  ]
+                },
+                {
+                  "name": "delete",
+                  "description": "Delete a local network gateway",
+                  "fullName": "network gateway local-network delete",
+                  "usage": "[options] <resource-group> <name>",
+                  "filePath": "commands/arm/network/network._js",
+                  "options": [
+                    {
+                      "flags": "-v, --verbose",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-v",
+                      "long": "--verbose",
+                      "description": "use verbose output"
+                    },
+                    {
+                      "flags": "-vv",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "-vv",
+                      "description": "more verbose with debug output"
+                    },
+                    {
+                      "flags": "--json",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--json",
+                      "description": "use json output"
+                    },
+                    {
+                      "flags": "-g, --resource-group <resource-group>",
+                      "required": -22,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-g",
+                      "long": "--resource-group",
+                      "description": "the name of the resource group"
+                    },
+                    {
+                      "flags": "-n, --name <name>",
+                      "required": -12,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-n",
+                      "long": "--name",
+                      "description": "the name of the local network"
+                    },
+                    {
+                      "flags": "-q, --quiet",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-q",
+                      "long": "--quiet",
+                      "description": "quiet mode, do not ask for delete confirmation"
+                    },
+                    {
+                      "flags": "-s, --subscription <id>",
+                      "required": -20,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-s",
+                      "long": "--subscription",
+                      "description": "the subscription id"
+                    }
+                  ]
+                }
+              ],
+              "categories": {}
+            },
+            "connection": {
+              "name": "connection",
+              "description": "Commands to manage Gateway connection",
+              "fullName": "network gateway connection",
+              "usage": "[options] [command]",
+              "options": [],
+              "commands": [
+                {
+                  "name": "create",
+                  "description": "Create a gateway connection",
+                  "fullName": "network gateway connection create",
+                  "usage": "[options] <resource-group> <name> <location>",
+                  "filePath": "commands/arm/network/network._js",
+                  "options": [
+                    {
+                      "flags": "-v, --verbose",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-v",
+                      "long": "--verbose",
+                      "description": "use verbose output"
+                    },
+                    {
+                      "flags": "-vv",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "-vv",
+                      "description": "more verbose with debug output"
+                    },
+                    {
+                      "flags": "--json",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--json",
+                      "description": "use json output"
+                    },
+                    {
+                      "flags": "-g, --resource-group <resource-group>",
+                      "required": -22,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-g",
+                      "long": "--resource-group",
+                      "description": "the name of the resource group"
+                    },
+                    {
+                      "flags": "-n, --name <name>",
+                      "required": -12,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-n",
+                      "long": "--name",
+                      "description": "the name of the gateway connection"
+                    },
+                    {
+                      "flags": "-l, --location <location>",
+                      "required": -16,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-l",
+                      "long": "--location",
+                      "description": "the location"
+                    },
+                    {
+                      "flags": "-a, --vnet-gateway1 <vnet-gateway1>",
+                      "required": -21,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-a",
+                      "long": "--vnet-gateway1",
+                      "description": "the name"
+                    },
+                    {
+                      "flags": "-b, --vnet-gateway2 <vnet-gateway2>",
+                      "required": -21,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-b",
+                      "long": "--vnet-gateway2",
+                      "description": "the name"
+                    },
+                    {
+                      "flags": "-c, --lnet-gateway2 <lnet-gateway2>",
+                      "required": -21,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-c",
+                      "long": "--lnet-gateway2",
+                      "description": "the name"
+                    },
+                    {
+                      "flags": "-s, --subscription <subscription>",
+                      "required": -20,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-s",
+                      "long": "--subscription",
+                      "description": "the subscription identifier"
+                    },
+                    {
+                      "flags": "-t, --tags <tags>",
+                      "required": -12,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-t",
+                      "long": "--tags",
+                      "description": "the tags set on this local network gateway.\n   Can be multiple, in the format of \"name=value\".\n   Name is required and value is optional.\n   For example, -t tag1=value1;tag2"
+                    }
+                  ]
+                },
+                {
+                  "name": "list",
+                  "description": "Get all gateway connections",
+                  "fullName": "network gateway connection list",
+                  "usage": "[options] <resource-group>",
+                  "filePath": "commands/arm/network/network._js",
+                  "options": [
+                    {
+                      "flags": "-v, --verbose",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-v",
+                      "long": "--verbose",
+                      "description": "use verbose output"
+                    },
+                    {
+                      "flags": "-vv",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "-vv",
+                      "description": "more verbose with debug output"
+                    },
+                    {
+                      "flags": "--json",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--json",
+                      "description": "use json output"
+                    },
+                    {
+                      "flags": "-g, --resource-group <resource-group>",
+                      "required": -22,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-g",
+                      "long": "--resource-group",
+                      "description": "the name of the resource group"
+                    },
+                    {
+                      "flags": "-s, --subscription <subscription>",
+                      "required": -20,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-s",
+                      "long": "--subscription",
+                      "description": "the subscription identifier"
+                    }
+                  ]
+                },
+                {
+                  "name": "show",
+                  "description": "Get details about gateway connection",
+                  "fullName": "network gateway connection show",
+                  "usage": "[options] <resource-group> <name>",
+                  "filePath": "commands/arm/network/network._js",
+                  "options": [
+                    {
+                      "flags": "-v, --verbose",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-v",
+                      "long": "--verbose",
+                      "description": "use verbose output"
+                    },
+                    {
+                      "flags": "-vv",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "-vv",
+                      "description": "more verbose with debug output"
+                    },
+                    {
+                      "flags": "--json",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--json",
+                      "description": "use json output"
+                    },
+                    {
+                      "flags": "-g, --resource-group <resource-group>",
+                      "required": -22,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-g",
+                      "long": "--resource-group",
+                      "description": "the name of the resource group"
+                    },
+                    {
+                      "flags": "-n, --name <name>",
+                      "required": -12,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-n",
+                      "long": "--name",
+                      "description": "the name of the gateway connection"
+                    },
+                    {
+                      "flags": "-s, --subscription <subscription>",
+                      "required": -20,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-s",
+                      "long": "--subscription",
+                      "description": "the subscription identifier"
+                    }
+                  ]
+                },
+                {
+                  "name": "delete",
+                  "description": "Delete a gateway connection",
+                  "fullName": "network gateway connection delete",
+                  "usage": "[options] <resource-group> <name>",
+                  "filePath": "commands/arm/network/network._js",
+                  "options": [
+                    {
+                      "flags": "-v, --verbose",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-v",
+                      "long": "--verbose",
+                      "description": "use verbose output"
+                    },
+                    {
+                      "flags": "-vv",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "-vv",
+                      "description": "more verbose with debug output"
+                    },
+                    {
+                      "flags": "--json",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "long": "--json",
+                      "description": "use json output"
+                    },
+                    {
+                      "flags": "-g, --resource-group <resource-group>",
+                      "required": -22,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-g",
+                      "long": "--resource-group",
+                      "description": "the name of the resource group"
+                    },
+                    {
+                      "flags": "-n, --name <name>",
+                      "required": -12,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-n",
+                      "long": "--name",
+                      "description": "the name of the gateway connection"
+                    },
+                    {
+                      "flags": "-q, --quiet",
+                      "required": 0,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-q",
+                      "long": "--quiet",
+                      "description": "quiet mode, do not ask for delete confirmation"
+                    },
+                    {
+                      "flags": "-s, --subscription <id>",
+                      "required": -20,
+                      "optional": 0,
+                      "bool": true,
+                      "short": "-s",
+                      "long": "--subscription",
+                      "description": "the subscription id"
                     }
                   ]
                 }
